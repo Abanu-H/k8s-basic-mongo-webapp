@@ -1,0 +1,8 @@
+{
+    "yaml.schemas": {
+        "kubernetes://schema/apps/v1%40deployment": [
+            "file:///d%3A/Kubernets/k8s-demo/webapp-deployment.yaml",
+            "file:///d%3A/Kubernets/k8s-demo/mongo-deployment.yaml"
+        ]
+    }
+}
