@@ -1,4 +1,4 @@
-Kubernetes MongoDB + WebApp Demo
+### Kubernetes MongoDB + WebApp Demo
 A simple Kubernetes application setup using Minikube. This project deploys a Node.js web app connected to a MongoDB backend. It includes YAML manifests for Pods, Services, Secrets, and ConfigMaps — making it ideal for learning basic Kubernetes deployment patterns.
 
 This project contains a basic Kubernetes setup using Minikube that deploys:
