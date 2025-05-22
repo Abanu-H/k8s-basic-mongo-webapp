@@ -1,3 +1,16 @@
+# To create this deployment and service:
+# 1. Create Deployment using: kubectl apply -f webapp-deploy.yaml
+
+# -------------------------------------------------------------
+# To verify resources:
+# kubectl get pods -l app=webapp
+# kubectl get deployment webapp-deployment
+# kubectl get service webapp-service
+# kubectl describe pod <pod-name>
+# kubectl logs <pod-name>
+
+
+# ---------------------- WebApp Deployment ----------------------
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -18,8 +31,11 @@ spec:
       - name: webappdb
         image: nanajanashia/k8s-demo-app:v1.0
         ports:
-        - containerPort: 9000
+        - containerPort: 9000  # App listens on port 9000 inside the container
+
 ---
+
+# ---------------------- WebApp Service ----------------------
 apiVersion: v1
 kind: Service
 metadata:
@@ -27,9 +43,9 @@ metadata:
 spec:
   type: NodePort
   selector:
-    app: webapp  
+    app: webapp
   ports:
     - protocol: TCP
-      port: 9000
-      targetPort: 3000
-      nodePort: 30200
+      port: 9000        # ClusterIP service port
+      targetPort: 3000  # Forward traffic to container's internal port 3000
+      nodePort: 30200   # Expose service on this static port on every node

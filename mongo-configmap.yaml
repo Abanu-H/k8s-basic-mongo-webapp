@@ -1,6 +1,9 @@
+# Create a ConfigMap named 'mongo-config' with a key 'mongo-url'
+# This holds the MongoDB service URL which can be used in a Deployment
+
 apiVersion: v1
 kind: ConfigMap
 metadata:
   name: mongo-config
 data:
-  mongo-url : mongo-service
+  mongo-url: mongo-service  # <-- MongoDB service URL is passed here
